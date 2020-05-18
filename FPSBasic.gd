@@ -2,7 +2,7 @@ extends KinematicBody
 
 var speed = 5
 var acceleration = 10
-var gravity = 0.09
+var gravity = 0.09 #set physics fps to 240
 var jump = 10
 
 var mouse_sensitivity = 0.03
