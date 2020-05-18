@@ -49,6 +49,9 @@ func _physics_process(delta):
 		
 		direction += transform.basis.x
 	
+	
+	#keeps character controller moving at the same speed whether moving up/down slopes or on flat ground. Thank you Wizardtroll Games
+	
 	inertia = (prev_pos - global_transform.origin).length() * fps / speed 
 	direction = direction.normalized() * speed
 	direction += direction * (1.5 - inertia)
@@ -61,7 +64,7 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		vvel.y = jump
-		move_and_slide(vvel, Vector3.UP)
+		move_and_slide(vvel, Vector3.UP) #move_and_slide_with_snap prevents jumping, so I used move_and_slide just for jumping
 	
 	prev_pos = global_transform.origin
 	
